@@ -1,223 +1,194 @@
-import { FeaturesGrid } from '@/components/blocks/FeaturesGrid'
+import { FeaturesCards3D } from '@/components/blocks/FeaturesCards3D'
 import { FAQAccordion } from '@/components/blocks/FAQAccordion'
 import { BentoGrid, BentoGridItem } from '@/components/ui/effects/BentoGrid'
-import { StickyScroll as StickyScrollReveal } from '@/components/ui/effects/StickyScrollReveal'
 import { CTASparkles } from '@/components/blocks/CTASparkles'
 
 export default function ClassesPage() {
   return (
     <div>
-      <section className="py-16 md:py-20 px-4 md:px-8">
+      <section className="py-16 md:py-28 px-4 md:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           <div>
-            <p className="text-sm text-muted-foreground">Classes</p>
+            <p className="text-sm font-semibold text-muted-foreground tracking-widest">
+              CLASSES
+            </p>
             <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight">
-              CLASS SCHEDULE, BUILT FOR CONSISTENCY
+              CLASS SCHEDULE
             </h1>
-            <p className="mt-4 text-muted-foreground">
-              Choose your lane—power, mobility, yin, or breathwork—and book in seconds. Emberflow classes are designed
-              to be repeatable: patterns come back, skills build, and your body learns what “better” feels like.
+            <p className="mt-4 text-lg text-muted-foreground">
+              A weekly rhythm that balances intensity, mobility, and recovery—so
+              you can keep showing up. Our programming is designed to be mixed:
+              build strength with Ignite, keep joints happy with Mobility Lab,
+              and protect your progress with Restore.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <a
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-xl bg-primary text-primary-foreground px-5 py-3 font-semibold"
+                href="/pricing"
+                className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
               >
-                Book a Class
+                JOIN WITH A PASS
               </a>
               <a
-                href="/pricing"
-                className="inline-flex items-center justify-center rounded-xl border border-border bg-card px-5 py-3 font-semibold text-foreground hover:shadow-sm transition-shadow"
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-xl border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:bg-muted transition-colors"
               >
-                View Memberships
+                ASK ABOUT PRIVATE SESSIONS
               </a>
             </div>
 
-            <div className="mt-10 rounded-2xl border border-border bg-card/90 backdrop-blur shadow-sm p-6">
-              <div className="font-semibold">Good first picks</div>
+            <div className="mt-8 rounded-xl border border-border bg-card p-5">
+              <p className="text-sm font-semibold">How booking works</p>
               <p className="mt-2 text-sm text-muted-foreground">
-                New to Emberflow? Start with <span className="text-foreground font-medium">Foundations</span>,{' '}
-                <span className="text-foreground font-medium">Yin Reset</span>, or{' '}
-                <span className="text-foreground font-medium">Mobility + Core</span>. You’ll get clear coaching and
-                options without feeling rushed.
+                Choose a plan, pick a class time, reserve your spot. If you’re
+                new, arrive 10 minutes early and we’ll set you up with props and
+                options. No “must be flexible” energy—just coaching.
               </p>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-card/90 backdrop-blur shadow-sm p-6">
-            <div className="flex items-center justify-between gap-4">
-              <div className="font-semibold">Sample Weekly Board</div>
+          <div className="rounded-xl border border-border bg-card/70 backdrop-blur supports-[backdrop-filter]:bg-card/50 p-6">
+            <div className="flex items-center justify-between">
+              <p className="text-sm font-semibold">Weekly Grid (Sample)</p>
+              <p className="text-xs text-muted-foreground">
+                Replace with real times
+              </p>
+            </div>
+            <div className="mt-5">
+              <BentoGrid className="mx-auto">
+                <BentoGridItem
+                  title="MON"
+                  description="6:30a Ignite • 12p Foundation • 6p Mobility Lab"
+                />
+                <BentoGridItem
+                  title="TUE"
+                  description="7a Foundation • 5:30p Ignite • 7p Restore"
+                />
+                <BentoGridItem
+                  title="WED"
+                  description="6:30a Mobility • 12p Ignite • 6p Foundation"
+                />
+                <BentoGridItem
+                  title="THU"
+                  description="7a Ignite • 5:30p Mobility • 7p Restore"
+                />
+                <BentoGridItem
+                  title="FRI"
+                  description="6:30a Foundation • 12p Mobility • 5:30p Ignite"
+                />
+                <BentoGridItem
+                  title="SAT/SUN"
+                  description="Weekend intensives + longer Restore blocks (rotating)"
+                />
+              </BentoGrid>
+            </div>
+
+            <div className="mt-6">
               <a
-                className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
                 href="/contact"
+                className="inline-flex w-full items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
               >
-                Request exact times
+                CONTACT FOR PRIVATE SESSIONS
               </a>
             </div>
-            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { day: 'Mon', blocks: ['6:15a Power', '12:10p Mobility', '6:00p Power'] },
-                { day: 'Tue', blocks: ['7:00a Mobility', '12:10p Breathwork', '6:15p Foundations'] },
-                { day: 'Wed', blocks: ['6:15a Power', '12:10p Mobility', '6:00p Flow + Conditioning'] },
-                { day: 'Thu', blocks: ['7:00a Mobility', '12:10p Breathwork', '6:30p Yin Reset'] },
-                { day: 'Fri', blocks: ['6:30a Power (Express)', '5:45p Yin Reset'] },
-                { day: 'Weekend', blocks: ['Sat Long Flow', 'Sun Recovery Stack'] },
-              ].map((card) => (
-                <div
-                  key={card.day}
-                  className="rounded-xl border border-border bg-muted p-4 hover:shadow-sm transition-shadow"
-                >
-                  <div className="font-semibold">{card.day}</div>
-                  <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                    {card.blocks.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-            <p className="mt-4 text-xs text-muted-foreground">
-              This is a visual example for planning. For the latest schedule, send your availability and we’ll confirm
-              the best class options by email.
-            </p>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-20 px-4 md:px-8 bg-muted" id="schedule">
+      <section id="class-types" className="py-16 md:py-28 px-4 md:px-8 bg-muted">
         <div className="max-w-7xl mx-auto">
-          <FeaturesGrid
-            badge="Weekly Rhythm"
-            headline="WEEKLY RHYTHM"
-            subheadline="A repeatable schedule so you can plan and progress—without guessing what to do next."
+          <FeaturesCards3D
+            badge="FORMATS"
+            headline="CHOOSE YOUR TRAINING FOCUS"
+            subheadline="Each format has a purpose. Mix them for the best results—strength to build capacity, mobility to keep range, recovery to keep the engine running."
             features={[
-              { title: 'MON / WED', description: 'Power Vinyasa + Mobility + Core • AM + PM blocks' },
-              { title: 'TUE / THU', description: 'Mobility + Core + Breathwork Lab • Lunch + evening' },
-              { title: 'FRI', description: 'Power Vinyasa (express) + Yin Reset • 45 min + 60 min' },
-              { title: 'SAT / SUN', description: 'Long-form flow + Recovery stacks • Weekend intensives' },
+              {
+                title: 'IGNITE VINYASA',
+                description:
+                  'Sweat, tempo, and strength intervals. Expect breath-led intensity and smart progressions that build week-to-week.',
+              },
+              {
+                title: 'FOUNDATION FLOW',
+                description:
+                  'Alignment, stability, and confidence. Great for beginners and returners—especially if you want clear cues and repeatable fundamentals.',
+              },
+              {
+                title: 'MOBILITY LAB',
+                description:
+                  'Controlled end-range work, joint prep, and longer drills for lasting change. You’ll feel it in your gait, your lifts, and your posture.',
+              },
+              {
+                title: 'RESTORE + RESET',
+                description:
+                  'Long holds, breathwork, and guided downregulation. Ideal after hard training weeks, travel, or high-stress seasons.',
+              },
             ]}
           />
         </div>
       </section>
 
-      <section className="py-16 md:py-20 px-4 md:px-8" id="class-types">
+      <section id="what-to-expect" className="py-16 md:py-28 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">CHOOSE YOUR PRACTICE</h2>
-            <p className="mt-3 text-muted-foreground">
-              Every class has a purpose—and a progression path. If you tell us your training background and goal, we’ll
-              point you to the best first class and a plan that matches your week.
-            </p>
-          </div>
-
-          <div className="mt-10">
-            <BentoGrid>
-              <BentoGridItem
-                title="POWER VINYASA"
-                description="Strength + sweat with scalable intensity. Expect athletic pacing, strong cueing, and a clean recovery finish."
-              />
-              <BentoGridItem
-                title="MOBILITY + CORE"
-                description="Control + range for resilient movement. Great for lifters, runners, desk bodies, and anyone who wants mobility that sticks."
-              />
-              <BentoGridItem
-                title="YIN RESET"
-                description="Long holds to restore tissue and calm. A downshift for sleep, stress, and recovery between training days."
-              />
-              <BentoGridItem
-                title="BREATHWORK LAB"
-                description="Protocols for focus, calm, and recovery. Learn tools you can use immediately—before work, after workouts, or when stress spikes."
-              />
-              <BentoGridItem
-                title="FOUNDATIONS"
-                description="Beginner-friendly alignment and flow basics. Ideal if you want confident form before intensity."
-              />
-              <BentoGridItem
-                title="FLOW + CONDITIONING"
-                description="Intervals blended into vinyasa patterns. A training-style class that’s still mindful, controlled, and coached."
-              />
-            </BentoGrid>
-          </div>
+          <FeaturesCards3D
+            headline="WHAT TO EXPECT"
+            subheadline="Walk in ready. Leave with a plan. Our goal is to make your first class feel straightforward—and your tenth class feel measurably better."
+            features={[
+              {
+                title: 'ARRIVE 10 MIN EARLY',
+                description:
+                  'We’ll set you up with props, show you the room, and help you choose options that match your body today.',
+              },
+              {
+                title: 'CLEAR OPTIONS, NOT CONFUSION',
+                description:
+                  'Every sequence includes regressions and progressions so you can train safely without guessing.',
+              },
+              {
+                title: 'BOOKING IS SIMPLE',
+                description:
+                  'Pick a class, reserve your spot, and you’re in. If you need help choosing a plan, message us—we reply within 1 business day.',
+              },
+            ]}
+          />
         </div>
       </section>
 
-      <section className="py-16 md:py-20 px-4 md:px-8 bg-muted" id="what-to-expect">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">WHAT TO EXPECT</h2>
-            <p className="mt-3 text-muted-foreground">
-              Fast check-in. Clear coaching. No awkwardness. Here’s how a typical Emberflow class flows—from the first
-              breath to the final downshift.
-            </p>
-          </div>
-
-          <div className="mt-10">
-            <StickyScrollReveal
-              content={[
-                {
-                  title: 'ARRIVE 10 MIN EARLY',
-                  description:
-                    'Grab your spot, set up, and settle your breath. If it’s your first time, tell the coach what you’re working on (and any injuries).',
-                },
-                {
-                  title: 'SMART WARM-UP',
-                  description:
-                    'Joint prep and core activation before intensity. We build heat progressively so your body feels ready—not rushed.',
-                },
-                {
-                  title: 'PROGRESSIONS + OPTIONS',
-                  description:
-                    'Every sequence includes regressions and upgrades. You’ll never be stuck choosing between “too easy” and “too much.”',
-                },
-                {
-                  title: 'RECOVERY FINISH',
-                  description:
-                    'Downshift with breath and a short guided reset. You leave energized, but also calmer—like your nervous system got the memo.',
-                },
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-20 px-4 md:px-8" id="faq">
-        <div className="max-w-7xl mx-auto">
+      <section id="faq" className="py-16 md:py-28 px-4 md:px-8 bg-muted">
+        <div className="max-w-5xl mx-auto">
           <FAQAccordion
-            headline="QUICK FAQ"
-            subheadline="Everything you need to start strong."
+            headline="SCHEDULE FAQ"
+            subheadline="Quick answers before your first class."
             items={[
               {
-                question: 'Do I need to be flexible?',
+                question: 'Do I need to be flexible to start?',
                 answer:
-                  'No. Mobility improves with consistent practice. We coach options for every body and focus on control first—so range builds safely and actually lasts.',
+                  'No. Flexibility is a result, not a requirement. We coach options for every level and emphasize stability and breath pacing first.',
               },
               {
                 question: 'What should I bring?',
                 answer:
-                  'Comfortable clothes and water. Mats are available; bring your own if you prefer. If you sweat a lot in Power Vinyasa, a small towel helps.',
+                  'Comfortable clothes and water. Mats and props are available at the studio. If you have your own mat, bring it—either way works.',
               },
               {
-                question: 'Is this beginner-friendly?',
+                question: 'Can I switch class types week to week?',
                 answer:
-                  'Yes—start with Foundations, Yin Reset, or Mobility + Core. Coaches will guide you with cues and options so you feel confident from day one.',
-              },
-              {
-                question: 'How do I book?',
-                answer:
-                  'Use the contact form to request your first class. Share your availability and goal, and we’ll confirm the best option by email within 24 hours.',
+                  'Yes—mixing formats is encouraged. Most members feel best with a blend of strength-focused sessions plus mobility and recovery.',
               },
             ]}
           />
         </div>
       </section>
 
-      <CTASparkles
-        headline="BOOK YOUR FIRST CLASS—WITHOUT OVERTHINKING IT"
-        description="Tell us your goal and availability. We’ll match you to a class that fits your body and your week."
-        ctaLabel="Book a Class"
-        ctaHref="/contact"
-      />
+      <section className="py-16 md:py-28 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <CTASparkles
+            headline="READY TO LOCK IN YOUR WEEKLY RHYTHM?"
+            description="Grab a Starter Pass and try multiple class types in one week—then choose the membership that matches your schedule."
+            ctaLabel="STARTER PASS"
+            ctaHref="/pricing#tiers"
+          />
+        </div>
+      </section>
     </div>
   )
 }

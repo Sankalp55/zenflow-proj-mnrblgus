@@ -1,36 +1,32 @@
-"use client";
-
 import * as React from "react";
 
-export type SparklesCoreProps = {
-  id?: string;
-  className?: string;
+export type SparklesCoreProps = React.HTMLAttributes<HTMLDivElement> & {
   background?: string;
   minSize?: number;
   maxSize?: number;
   particleDensity?: number;
+  className?: string;
   particleColor?: string;
 };
 
 /**
- * Minimal, build-safe SparklesCore placeholder.
- * The project imports `SparklesCore` from this module.
+ * Lightweight fallback implementation.
+ * Some templates expect a named export `SparklesCore`.
  */
 export function SparklesCore({
-  id,
   className,
   background,
+  particleColor,
+  ...props
 }: SparklesCoreProps) {
   return (
     <div
-      id={id}
       className={className}
-      aria-hidden="true"
       style={{
         background: background ?? "transparent",
-        width: "100%",
-        height: "100%",
+        color: particleColor,
       }}
+      {...props}
     />
   );
 }

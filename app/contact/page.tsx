@@ -1,214 +1,161 @@
 import { ContactForm } from '@/components/blocks/ContactForm'
-import { BentoGrid, BentoGridItem } from '@/components/ui/effects/BentoGrid'
-import { ParallaxScroll } from '@/components/ui/effects/ParallaxScroll'
+import { TestimonialsAnimated } from '@/components/blocks/TestimonialsAnimated'
 import { CTASparkles } from '@/components/blocks/CTASparkles'
+import { BentoGrid, BentoGridItem } from '@/components/ui/effects/BentoGrid'
 
 export default function ContactPage() {
   return (
     <div>
-      <section className="py-16 md:py-20 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <section className="py-16 md:py-28 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-sm text-muted-foreground">Contact</p>
-            <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight">BOOK YOUR FIRST CLASS</h1>
-            <p className="mt-4 text-muted-foreground">
-              Send your availability and goals. We’ll reply with the best class + plan for you. If you’re new to yoga or
-              returning after time off, we’ll start you with options that feel strong and doable.
+            <p className="text-sm font-semibold text-muted-foreground tracking-widest">
+              CONTACT
+            </p>
+            <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight">
+              CONTACT EMBER
+            </h1>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Questions, private sessions, or help choosing a plan—send a message
+              and we’ll reply within 1 business day. If you’re new, tell us your
+              training background and any limitations; we’ll recommend the best
+              first class.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <a
-                href="#contact-form"
-                className="inline-flex items-center justify-center rounded-xl bg-primary text-primary-foreground px-5 py-3 font-semibold"
+                href="#form"
+                className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
               >
-                Fill the Form
+                SEND A MESSAGE
               </a>
               <a
                 href="/pricing"
-                className="inline-flex items-center justify-center rounded-xl border border-border bg-card px-5 py-3 font-semibold text-foreground hover:shadow-sm transition-shadow"
+                className="inline-flex items-center justify-center rounded-xl border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:bg-muted transition-colors"
               >
-                View Pricing
+                VIEW PRICING
               </a>
             </div>
 
-            <div className="mt-10 rounded-2xl border border-border bg-card/90 backdrop-blur shadow-sm p-6">
-              <div className="font-semibold">Response time</div>
+            <div className="mt-10 rounded-xl border border-border bg-card/70 backdrop-blur supports-[backdrop-filter]:bg-card/50 p-6">
+              <p className="text-sm font-semibold">Fastest way to get help</p>
               <p className="mt-2 text-sm text-muted-foreground">
-                We typically reply within 24 hours (often sooner). If you’re trying to book same-day, include the class
-                window you want and we’ll do our best to fit you in.
+                Include your preferred class times (morning / lunch / evening),
+                your goal (strength, mobility, recovery), and any injuries. The
+                more context you share, the more precise our recommendation.
               </p>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-muted p-6">
-            <div className="font-semibold">Before you hit send</div>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <li>
-                Tell us your <span className="text-foreground font-medium">primary goal</span> (strength, mobility,
-                stress, recovery).
-              </li>
-              <li>
-                Share your <span className="text-foreground font-medium">availability</span> (days/times).
-              </li>
-              <li>
-                Mention any <span className="text-foreground font-medium">injuries or limitations</span> so we can coach
-                the right options.
-              </li>
-            </ul>
-            <p className="mt-4 text-xs text-muted-foreground">
-              Client-side only. If anything fails to submit, you can email us directly at{' '}
-              <a className="underline underline-offset-4 hover:text-foreground" href="mailto:hello@emberflow.yoga">
-                hello@emberflow.yoga
-              </a>
-              .
+          <div className="rounded-xl border border-border bg-card p-6">
+            <p className="text-sm font-semibold">Before you hit send</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              This site uses a client-side contact flow (no server actions, no
+              database). Your message will be prepared for email using our
+              studio address.
             </p>
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+              <div className="rounded-xl border border-border bg-muted p-4">
+                <p className="font-semibold">Email</p>
+                <p className="mt-1 text-muted-foreground">
+                  hello@emberyoga.example
+                </p>
+              </div>
+              <div className="rounded-xl border border-border bg-muted p-4">
+                <p className="font-semibold">Reply time</p>
+                <p className="mt-1 text-muted-foreground">Within 1 business day</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-20 px-4 md:px-8 bg-muted" id="contact-form">
+      <section id="form" className="py-16 md:py-28 px-4 md:px-8 bg-muted">
         <div className="max-w-7xl mx-auto">
           <ContactForm
-            headline="CONTACT FORM"
-            subheadline="Client-side only. If submission fails, use the mailto link below and we’ll still get you booked."
+            headline="SEND A MESSAGE"
+            subheadline="Client-side form with validation. Submits to a mailto link by default—connect a provider later if you want."
             contactInfo={[
-              { label: 'Email', value: 'hello@emberflow.yoga' },
-              { label: 'Hours', value: 'Weekdays 6am–8pm • Weekends 8am–2pm' },
-              { label: 'Location', value: 'Downtown District (exact address provided by email)' },
+              { label: 'Email', value: 'hello@emberyoga.example' },
+              { label: 'Phone', value: '(555) 012-3456 (text ok)' },
+              { label: 'Hours', value: 'Mon–Fri 6:30a–8:00p • Sat–Sun 9:00a–2:00p' },
             ]}
           />
 
-          <div className="mt-6 rounded-2xl border border-border bg-card/90 backdrop-blur shadow-sm p-6">
-            <div className="font-semibold">Mailto fallback</div>
-            <p className="mt-2 text-sm text-muted-foreground">
-              If the form doesn’t work on your device, email us directly:
-            </p>
-            <div className="mt-4 flex flex-col sm:flex-row gap-3">
-              <a
-                href="mailto:hello@emberflow.yoga?subject=New%20inquiry%20from%20Emberflow%20site&body=Goal%3A%20%0AAvailability%3A%20%0A%0AMessage%3A%0A%0A%0AContact%3A%0A"
-                className="inline-flex items-center justify-center rounded-xl border border-border bg-muted px-5 py-3 font-semibold text-foreground hover:shadow-sm transition-shadow"
-              >
-                Email hello@emberflow.yoga
-              </a>
-              <a
-                href="/classes"
-                className="inline-flex items-center justify-center rounded-xl bg-primary text-primary-foreground px-5 py-3 font-semibold"
-              >
-                Browse Classes
-              </a>
-            </div>
-            <p className="mt-3 text-xs text-muted-foreground" id="newsletter">
-              Newsletter signup note: if you want the “Weekly Flow Drop,” write “Newsletter” in your message and we’ll
-              add you.
-            </p>
-          </div>
+          <p className="mt-6 text-sm text-muted-foreground">
+            Tip: If your email app doesn’t open automatically, copy the details
+            and send to <span className="font-semibold">hello@emberyoga.example</span>.
+          </p>
         </div>
       </section>
 
-      <section className="py-16 md:py-20 px-4 md:px-8" id="studio-info">
+      <section id="details" className="py-16 md:py-28 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">STUDIO DETAILS</h2>
-            <p className="mt-3 text-muted-foreground">Everything you need before you arrive.</p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+              STUDIO DETAILS
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Everything you need before you arrive. Replace the address with
+              your real location when you’re ready.
+            </p>
           </div>
 
           <div className="mt-10">
-            <BentoGrid>
-              <BentoGridItem title="LOCATION" description="Downtown District • Address shared in booking confirmation." />
-              <BentoGridItem title="HOURS" description="Weekdays 6am–8pm • Weekends 8am–2pm" />
-              <BentoGridItem title="AMENITIES" description="Mats available • Lockers • Filtered water" />
-              <BentoGridItem title="FIRST CLASS" description="Arrive 10 minutes early • Tell coach any injuries" />
+            <BentoGrid className="mx-auto">
+              <BentoGridItem
+                title="LOCATION"
+                description="Downtown (replace with your address) • Parking nearby"
+              />
+              <BentoGridItem
+                title="HOURS"
+                description="Mon–Fri 6:30a–8:00p • Sat–Sun 9:00a–2:00p (varies by schedule)"
+              />
+              <BentoGridItem title="PHONE" description="(555) 012-3456 • Text ok" />
+              <BentoGridItem
+                title="EMAIL"
+                description="hello@emberyoga.example • 1 business day reply"
+              />
             </BentoGrid>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-20 px-4 md:px-8 bg-muted" id="map">
+      <section className="py-16 md:py-28 px-4 md:px-8 bg-muted">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">FIND YOUR WAY IN</h2>
-            <p className="mt-3 text-muted-foreground">
-              Drop in early—your nervous system will thank you. We use a static map image (no API) and a simple link to
-              open directions.
-            </p>
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            <div className="rounded-2xl border border-border bg-card/90 backdrop-blur shadow-sm p-6">
-              <div className="font-semibold">Static map</div>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Replace this image with your own exported map screenshot once your address is finalized.
-              </p>
-              <a
-                href="https://www.google.com/maps"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 block overflow-hidden rounded-xl border border-border"
-              >
-                {/* Static asset placeholder path; replace with your real image in /public */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/emberflow/static-map.jpg"
-                  alt="Map preview for Emberflow Yoga Studio"
-                  className="w-full h-auto"
-                />
-              </a>
-              <a
-                href="https://www.google.com/maps"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-flex items-center justify-center rounded-xl bg-primary text-primary-foreground px-5 py-3 font-semibold"
-              >
-                Open in Google Maps
-              </a>
-              <p className="mt-3 text-xs text-muted-foreground">
-                Tip: set the link to your exact place URL once you claim your listing.
-              </p>
-            </div>
-
-            <div>
-              <div className="rounded-2xl border border-border bg-card/90 backdrop-blur shadow-sm p-6">
-                <div className="font-semibold">What you’ll see</div>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  A clean, low-light room built for focus. Check in, grab a mat if you need one, and settle in. If
-                  you’re early, we’ll help you choose a spot and answer questions before class starts.
-                </p>
-              </div>
-
-              <div className="mt-6">
-                <ParallaxScroll
-                  images={[
-                    '/images/emberflow/entry.jpg',
-                    '/images/emberflow/studio-room.jpg',
-                  ]}
-                />
-              </div>
-
-              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  { title: 'Entrance + check-in', caption: 'Street-level entry with red neon sign.' },
-                  { title: 'Studio room', caption: 'Low light, high focus, clean lines.' },
-                ].map((i) => (
-                  <div
-                    key={i.title}
-                    className="rounded-2xl border border-border bg-muted p-6 hover:shadow-sm transition-shadow"
-                  >
-                    <div className="font-semibold">{i.title}</div>
-                    <p className="mt-2 text-sm text-muted-foreground">{i.caption}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <TestimonialsAnimated
+            headline="FIRST CLASS NERVES? NORMAL."
+            subheadline="We’ll guide you through it—step by step. Most people feel comfortable within the first five minutes."
+            testimonials={[
+              {
+                quote:
+                  'I was intimidated walking in. Five minutes later I felt supported and knew exactly what to do.',
+                name: 'Jordan P.',
+                role: 'New member',
+              },
+            ]}
+          />
         </div>
       </section>
 
-      <CTASparkles
-        headline="YOUR MAT IS READY"
-        description="One message away from a stronger, calmer week."
-        ctaLabel="Send My Message"
-        ctaHref="#contact-form"
-      />
+      <section className="py-16 md:py-28 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <CTASparkles
+            headline="BOOK YOUR FIRST CLASS THIS WEEK"
+            description="Momentum beats motivation. Choose a plan, then pick a class time that’s easy to keep."
+            ctaLabel="CHOOSE A PLAN"
+            ctaHref="/pricing"
+          />
+          <div className="mt-4 text-center">
+            <a
+              href="/classes"
+              className="text-sm font-semibold text-foreground underline underline-offset-4 hover:opacity-80 transition-opacity"
+            >
+              VIEW CLASSES
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

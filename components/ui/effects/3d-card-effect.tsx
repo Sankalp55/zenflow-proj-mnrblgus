@@ -4,6 +4,10 @@ import * as React from "react";
 
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
+/**
+ * Minimal, build-safe 3D card primitives.
+ * Many UI kits expect these named exports.
+ */
 export function CardContainer({ className, ...props }: DivProps) {
   return <div className={className} {...props} />;
 }

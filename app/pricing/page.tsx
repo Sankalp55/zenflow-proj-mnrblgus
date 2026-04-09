@@ -1,178 +1,160 @@
 import { PricingTable } from '@/components/blocks/PricingTable'
-import { FeaturesCards3D } from '@/components/blocks/FeaturesCards3D'
+import { FAQAccordion } from '@/components/blocks/FAQAccordion'
 import { CTASparkles } from '@/components/blocks/CTASparkles'
+import { BentoGrid, BentoGridItem } from '@/components/ui/effects/BentoGrid'
 
 export default function PricingPage() {
   return (
     <div>
-      <section className="py-16 md:py-20 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-          <div>
-            <p className="text-sm text-muted-foreground">Pricing</p>
-            <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight">PRICING THAT FEELS SIMPLE</h1>
-            <p className="mt-4 text-muted-foreground">
-              Choose a plan that matches your week. Upgrade anytime. Emberflow memberships are built around consistency:
-              repeatable class blocks, coaching-first cues, and recovery that’s part of the system—not an afterthought.
-            </p>
+      <section className="py-16 md:py-28 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-sm font-semibold text-muted-foreground tracking-widest">
+            PRICING
+          </p>
+          <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight">
+            PRICING THAT SUPPORTS CONSISTENCY
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground max-w-3xl">
+            Start small or go all-in. Every plan includes coach guidance and
+            simple booking. If you’re not sure where to begin, the Starter Pass
+            is the fastest way to feel the studio—then you can choose Flow or
+            Unlimited based on your weekly rhythm.
+          </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-xl bg-primary text-primary-foreground px-5 py-3 font-semibold"
-              >
-                Start with Foundation
-              </a>
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-xl border border-border bg-card px-5 py-3 font-semibold text-foreground hover:shadow-sm transition-shadow"
-              >
-                Ask a Question
-              </a>
-            </div>
-
-            <div className="mt-10 rounded-2xl border border-border bg-card/90 backdrop-blur shadow-sm p-6">
-              <div className="font-semibold">What most members choose</div>
-              <p className="mt-2 text-sm text-muted-foreground">
-                If you want a steady rhythm without living at the studio,{' '}
-                <span className="text-foreground font-medium">Foundation</span> is the sweet spot: enough frequency to
-                feel progress, plus priority booking and a guest pass to bring a friend.
-              </p>
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-border bg-muted p-6">
-            <div className="font-semibold">Plan guidance (quick)</div>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              <li>
-                <span className="text-foreground font-medium">1x/week:</span> Foundation works if you’ll use ~6–8
-                classes/month.
-              </li>
-              <li>
-                <span className="text-foreground font-medium">2–4x/week:</span> Unlimited is usually the best value and
-                supports recovery sessions.
-              </li>
-              <li>
-                <span className="text-foreground font-medium">Traveling / occasional:</span> Drop-In keeps it flexible.
-              </li>
-            </ul>
-            <p className="mt-4 text-xs text-muted-foreground">
-              Not sure? Send your schedule and goal—we’ll recommend a plan and first class that you can actually repeat.
-            </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <a
+              href="#tiers"
+              className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+            >
+              GET STARTER PASS
+            </a>
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-xl border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground hover:bg-muted transition-colors"
+            >
+              ASK A QUESTION
+            </a>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-20 px-4 md:px-8 bg-muted" id="membership-tiers">
+      <section id="tiers" className="py-16 md:py-28 px-4 md:px-8 bg-muted">
         <div className="max-w-7xl mx-auto">
           <PricingTable
             headline="MEMBERSHIP TIERS"
-            subheadline="Tight tiers, bold value."
+            subheadline="Compare plans at a glance. Designed for consistency—pause or cancel anytime."
             tiers={[
               {
-                name: 'DROP-IN',
-                price: '$22',
-                period: 'per class',
-                features: ['Any class type', 'Mat rental included', 'Same-day booking'],
-                ctaLabel: 'Choose Drop-In',
-                ctaHref: '/contact',
-              },
-              {
-                name: 'FOUNDATION',
-                price: '$89',
-                period: 'per month',
-                features: ['8 classes / month', 'Priority booking window', '1 guest pass / month'],
-                ctaLabel: 'Choose Foundation',
-                ctaHref: '/contact',
+                name: 'STARTER PASS',
+                price: '$29',
+                period: '7 days',
+                features: [
+                  'Unlimited classes',
+                  'One free mat rental',
+                  'New member onboarding',
+                ],
+                ctaLabel: 'START NOW',
+                ctaHref: '/contact?intent=starter',
                 highlighted: true,
               },
               {
+                name: 'FLOW',
+                price: '$99',
+                period: 'month',
+                features: [
+                  '8 classes / month',
+                  'Priority booking',
+                  'Workshop member pricing',
+                ],
+                ctaLabel: 'CHOOSE FLOW',
+                ctaHref: '/contact?intent=flow',
+              },
+              {
                 name: 'UNLIMITED',
-                price: '$139',
-                period: 'per month',
-                features: ['Unlimited classes', 'Workshops -10%', '2 guest passes / month'],
-                ctaLabel: 'Choose Unlimited',
-                ctaHref: '/contact',
+                price: '$149',
+                period: 'month',
+                features: [
+                  'Unlimited classes',
+                  'Guest pass monthly',
+                  'Unlimited mat rentals',
+                ],
+                ctaLabel: 'GO UNLIMITED',
+                ctaHref: '/contact?intent=unlimited',
               },
             ]}
           />
-        </div>
-      </section>
 
-      <section className="py-16 md:py-20 px-4 md:px-8" id="comparison">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">COMPARE PLANS</h2>
-            <p className="mt-3 text-muted-foreground">See what’s included at a glance.</p>
-          </div>
-
-          <div className="mt-10 overflow-x-auto rounded-2xl border border-border bg-card/90 backdrop-blur shadow-sm">
-            <table className="min-w-[720px] w-full text-sm">
-              <thead className="bg-muted">
-                <tr>
-                  <th className="text-left p-4 font-semibold">Feature</th>
-                  <th className="text-left p-4 font-semibold">DROP-IN</th>
-                  <th className="text-left p-4 font-semibold">FOUNDATION</th>
-                  <th className="text-left p-4 font-semibold">UNLIMITED</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border">
-                {[
-                  { feature: 'Classes per month', values: ['1', '8', 'Unlimited'] },
-                  { feature: 'Priority booking', values: ['—', 'Yes', 'Yes+'] },
-                  { feature: 'Guest passes', values: ['—', '1', '2'] },
-                  { feature: 'Workshop discount', values: ['—', '—', '10%'] },
-                  { feature: 'Mat rental', values: ['Included', 'Included', 'Included'] },
-                ].map((row) => (
-                  <tr key={row.feature} className="hover:bg-muted/40">
-                    <td className="p-4 font-medium">{row.feature}</td>
-                    {row.values.map((v, idx) => (
-                      <td key={idx} className="p-4 text-muted-foreground">
-                        {v}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="mt-4 text-xs text-muted-foreground">
-            “Yes+” priority booking means the earliest access window during high-demand weeks and workshops.
+          <p className="mt-6 text-sm text-muted-foreground">
+            Checkout links are placeholders (client-side only). Connect Stripe,
+            Mindbody, Momence, or your preferred provider when you’re ready.
           </p>
         </div>
       </section>
 
-      <section className="py-16 md:py-20 px-4 md:px-8 bg-muted" id="value-props">
+      <section id="drop-in" className="py-16 md:py-28 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-          <FeaturesCards3D
-            badge="Value"
-            headline="WHY MEMBERS STAY"
-            subheadline="The system is simple: show up, progress, recover."
-            features={[
-              { title: 'COACHING-FIRST', description: 'Technique cues, not vague vibes. You’ll know what to do and why.' },
+          <div className="max-w-3xl">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+              DROP-IN + PACKS
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Flexible options for travel weeks and busy seasons. Packs are
+              great if you want structure without a monthly renewal.
+            </p>
+          </div>
+
+          <div className="mt-10">
+            <BentoGrid className="mx-auto">
+              <BentoGridItem title="DROP-IN" description="$22 per class" />
+              <BentoGridItem
+                title="5-CLASS PACK"
+                description="$95 • Expires in 3 months"
+              />
+              <BentoGridItem
+                title="10-CLASS PACK"
+                description="$170 • Expires in 6 months"
+              />
+            </BentoGrid>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-28 px-4 md:px-8 bg-muted">
+        <div className="max-w-7xl mx-auto">
+          <CTASparkles
+            headline="NO LONG CONTRACTS. NO GUILT."
+            description="Pause or cancel anytime. We’d rather earn your consistency than lock it in. If you’re deciding between Flow and Unlimited, tell us your weekly availability and we’ll recommend the best fit."
+            ctaLabel="TALK TO US"
+            ctaHref="/contact"
+          />
+        </div>
+      </section>
+
+      <section id="faq" className="py-16 md:py-28 px-4 md:px-8">
+        <div className="max-w-5xl mx-auto">
+          <FAQAccordion
+            headline="PRICING FAQ"
+            subheadline="Transparent answers—no fine print energy."
+            items={[
               {
-                title: 'PROGRESSIVE SEQUENCING',
-                description: 'Patterns repeat so your body learns. You’ll feel the difference week to week.',
+                question: 'Do memberships auto-renew?',
+                answer:
+                  'Yes. Monthly memberships renew automatically until canceled. We keep it simple—no long contracts.',
               },
               {
-                title: 'RECOVERY BUILT-IN',
-                description: 'Mobility + yin + breathwork are part of the weekly flow—not optional extras.',
+                question: 'Can I freeze my membership?',
+                answer:
+                  'Yes. Contact us and we’ll pause it for travel, injury recovery, or busy seasons. We’ll help you restart smoothly.',
               },
               {
-                title: 'TIGHT COMMUNITY',
-                description: 'High energy, welcoming room, no ego. You’ll feel seen without being singled out.',
+                question: 'Are workshops included?',
+                answer:
+                  'Workshops are separate, with discounted pricing for members. They’re designed as deep dives (mobility, inversions, breathwork) rather than add-ons.',
               },
             ]}
           />
         </div>
       </section>
-
-      <CTASparkles
-        headline="READY TO LOCK IN A ROUTINE?"
-        description="Tell us your goals and schedule—we’ll recommend the best plan and first class."
-        ctaLabel="Get My Recommendation"
-        ctaHref="/contact"
-      />
     </div>
   )
 }

@@ -15,21 +15,17 @@ export type AnimatedTestimonialsProps = {
 };
 
 /**
- * Minimal, build-safe implementation.
- * The project imports `AnimatedTestimonials` from this module.
+ * Build-safe fallback for templates expecting `AnimatedTestimonials`.
  */
-export function AnimatedTestimonials({
-  testimonials,
-  className,
-}: AnimatedTestimonialsProps) {
+export function AnimatedTestimonials({ testimonials, className }: AnimatedTestimonialsProps) {
   return (
     <div className={className}>
       {testimonials?.map((t, idx) => (
         <figure key={idx} className="space-y-2">
-          <blockquote className="text-sm leading-relaxed">{t.quote}</blockquote>
-          <figcaption className="text-xs opacity-80">
+          <blockquote className="text-sm text-muted-foreground">{t.quote}</blockquote>
+          <figcaption className="text-sm font-medium">
             {t.name}
-            {t.title ? ` — ${t.title}` : ""}
+            {t.title ? <span className="text-muted-foreground"> · {t.title}</span> : null}
           </figcaption>
         </figure>
       ))}

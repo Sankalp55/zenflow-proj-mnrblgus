@@ -1,6 +1,6 @@
 "use client";
 
-export default function ParallaxScroll(props: any) {
+export default function InfiniteMovingCards(props: any) {
   return (
     <section className="w-full py-16 px-4 md:px-8">
       <div className="max-w-6xl mx-auto">

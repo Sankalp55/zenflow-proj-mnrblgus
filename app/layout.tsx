@@ -1,75 +1,74 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { NavbarMinimal } from '@/components/blocks/NavbarMinimal'
+import { NavbarSticky } from '@/components/blocks/NavbarSticky'
 import { FooterMultiColumn } from '@/components/blocks/FooterMultiColumn'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Emberflow Yoga Studio — Power, Mobility, Yin & Breathwork',
+  title: 'Ember Yoga Studio — Strength, Mobility, Breath',
   description:
-    'Emberflow is a bold, high-energy yoga studio offering Power Vinyasa, Mobility + Core, Yin Reset, and Breathwork. View classes, membership pricing, and book your first session.',
+    'Ember Yoga Studio blends athletic vinyasa, mobility training, and restorative breathwork. View classes, explore memberships, and start with a 7-day pass.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${inter.className} bg-background text-foreground`}>
-        <NavbarMinimal
-          logo="EMBERFLOW"
+        <NavbarSticky
+          logo="EMBER YOGA"
           navItems={[
-            { label: 'Home', href: '/' },
-            { label: 'Classes', href: '/classes' },
-            { label: 'Pricing', href: '/pricing' },
-            { label: 'About', href: '/about' },
-            { label: 'Contact', href: '/contact' },
+            { label: 'HOME', href: '/' },
+            { label: 'CLASSES', href: '/classes' },
+            { label: 'PRICING', href: '/pricing' },
+            { label: 'ABOUT', href: '/about' },
+            { label: 'CONTACT', href: '/contact' },
           ]}
-          ctaLabel="Book a Free Intro"
-          ctaHref="/contact"
+          ctaLabel="GET STARTED"
+          ctaHref="/pricing"
         />
         <main>{children}</main>
         <FooterMultiColumn
-          brand="Emberflow Yoga Studio"
-          description="Move with fire. Breathe with focus. Emberflow blends strength-driven vinyasa, mobility training, yin recovery, and breathwork so your practice actually supports real life."
+          brand="EMBER YOGA"
+          description="Breathe louder. Move stronger. Ember is a high-focus yoga studio built like a training room—strength-forward flows, mobility work that sticks, and recovery sessions that downshift your nervous system."
           columns={[
             {
               title: 'Classes',
               links: [
-                { label: 'Schedule & Class Types', href: '/classes' },
-                { label: 'Power Vinyasa', href: '/classes#class-types' },
-                { label: 'Mobility + Core', href: '/classes#class-types' },
-                { label: 'Yin Reset', href: '/classes#class-types' },
-                { label: 'Breathwork Lab', href: '/classes#class-types' },
+                { label: 'Class Schedule', href: '/classes' },
+                { label: 'Class Types', href: '/classes#class-types' },
+                { label: 'What to Expect', href: '/classes#what-to-expect' },
+                { label: 'Schedule FAQ', href: '/classes#faq' },
               ],
             },
             {
-              title: 'Membership',
+              title: 'Pricing',
               links: [
-                { label: 'Pricing', href: '/pricing' },
-                { label: 'Drop-In', href: '/pricing#membership-tiers' },
-                { label: 'Foundation', href: '/pricing#membership-tiers' },
-                { label: 'Unlimited', href: '/pricing#membership-tiers' },
+                { label: 'Starter Pass', href: '/pricing#tiers' },
+                { label: 'Membership Tiers', href: '/pricing#tiers' },
+                { label: 'Drop-in + Packs', href: '/pricing#drop-in' },
+                { label: 'Pricing FAQ', href: '/pricing#faq' },
               ],
             },
             {
               title: 'Studio',
               links: [
-                { label: 'About Emberflow', href: '/about' },
-                { label: 'Member Stories', href: '/about#stories' },
-                { label: 'Contact', href: '/contact' },
+                { label: 'Our Method', href: '/about#mission' },
+                { label: 'Team', href: '/about#team' },
+                { label: 'Community Wins', href: '/about#community' },
               ],
             },
             {
-              title: 'Get Started',
+              title: 'Contact',
               links: [
-                { label: 'Book a Free Intro', href: '/contact' },
-                { label: 'Ask a Coach', href: '/contact' },
-                { label: 'What to Expect', href: '/classes#what-to-expect' },
+                { label: 'Send a Message', href: '/contact#form' },
+                { label: 'Studio Details', href: '/contact#details' },
+                { label: 'Private Sessions', href: '/contact?intent=private' },
               ],
             },
           ]}
-          copyright="© 2026 Emberflow Yoga Studio. All rights reserved."
+          copyright="© 2026 EMBER YOGA. All rights reserved."
         />
       </body>
     </html>
