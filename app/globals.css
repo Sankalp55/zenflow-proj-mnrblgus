@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* HSL values derived from blueprint hex palette */
+:root {
+  --radius: 1rem;
+
+  /* Base */
+  --background: 240 8% 5%;     /* #0B0B0D */
+  --foreground: 0 0% 96%;      /* #F5F5F5 */
+
+  /* Brand */
+  --primary: 11 100% 50%;      /* #FF2E00 */
+  --primary-foreground: 0 0% 7%; /* #111111 */
+
+  --secondary: 0 0% 7%;        /* #111111 */
+  --secondary-foreground: 0 0% 100%; /* #FFFFFF */
+
+  --accent: 112 100% 71%;      /* #7CFF6B */
+
+  /* UI */
+  --muted: 240 10% 10%;        /* #16161B */
+  --muted-foreground: 236 9% 75%; /* #B9BAC6 */
+
+  --card: 240 11% 6%;          /* #101014 */
+  --border: 240 10% 18%;       /* #2A2A33 */
+  --ring: 11 100% 50%;         /* #FF2E00 */
+}
+
+.dark {
+  /* Blueprint themeMode is dark; keep same values for dark class usage */
+  --background: 240 8% 5%;
+  --foreground: 0 0% 96%;
+
+  --primary: 11 100% 50%;
+  --primary-foreground: 0 0% 7%;
+
+  --secondary: 0 0% 7%;
+  --secondary-foreground: 0 0% 100%;
+
+  --accent: 112 100% 71%;
+
+  --muted: 240 10% 10%;
+  --muted-foreground: 236 9% 75%;
+
+  --card: 240 11% 6%;
+  --border: 240 10% 18%;
+  --ring: 11 100% 50%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
